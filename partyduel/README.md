@@ -16,4 +16,4 @@ Help: '/partyduel'
 
 '/pkend' to end PK mode.
 
-PS: Other players must be using this addon with '/acceptduel yes' configuration or PK mode, or even autoacceptsduels addon by Crevox in order to receive valid duel requests.
+PS: Other players must be using this addon with '/acceptduel yes' configuration or PK mode, or even autoacceptduels addon by Crevox in order to receive valid duel requests.
