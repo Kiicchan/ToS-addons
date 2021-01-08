@@ -1,0 +1,17 @@
+[
+	{
+		"tosversion" : "20210108",
+		"name" : "Party Duel",
+		"file" : "partyduel",
+		"extension" : "ipf",
+		"fileVersion" : "v2.0.1",
+		"releaseTag" : "partyduel",
+		"unicode" : "⛄",
+		"description" : "Easy duel requests to many players at once, or auto duels with PK mode. Have fun battling your friends or enemies",
+		"tags" : [
+			"duel",
+			"PK",
+      "PVP"
+		]
+	}
+]
