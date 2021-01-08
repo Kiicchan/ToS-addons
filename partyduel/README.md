@@ -1,6 +1,7 @@
 # Party Duel
 
 Easy duel requests to many players at once, or have fun in cities and fields battling your friends automatically with PK mode.
+
 Command list:
 
 Help: '/partyduel'
