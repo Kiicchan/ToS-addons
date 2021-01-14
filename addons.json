@@ -7,7 +7,7 @@
 		"fileVersion" : "v2.0.1",
 		"releaseTag" : "partyduel",
 		"unicode" : "⛄",
-		"description" : "Easy duel requests to many players at once, or auto duels with PK mode. Have fun battling your friends or enemies. '/partyduel' for help ingame",
+		"description" : "Easy duel requests to many players at once, or auto duels with PK mode. Have fun battling your friends or enemies. Use '/pkstart' to start PK mode and '/pkend' to end it. '/partyduel' for help ingame",
 		"tags" : [
 			"duel",
 			"PK",
