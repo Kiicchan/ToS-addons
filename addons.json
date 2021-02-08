@@ -13,5 +13,20 @@
 			"PK",
 			"PVP"
 		]
+	},
+	{
+		"tosversion" : "20210208",
+		"name" : "Kill Counter",
+		"file" : "killcounter",
+		"extension" : "ipf",
+		"fileVersion" : "v2.0.1",
+		"releaseTag" : "killcounter",
+		"unicode" : "⛄",
+		"description" : "Simple Kill Counter for GTW. '/killcounter' to see counter. '/killcounter help' for additional options. Remember to turn ON Battle Alarm and System Chat",
+		"tags" : [
+			"kill",
+			"GTW",
+			"PVP"
+		]
 	}
 ]
