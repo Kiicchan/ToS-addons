@@ -28,5 +28,21 @@
 			"GTW",
 			"PVP"
 		]
+	},
+	{
+		"tosversion" : "20210222",
+		"name" : "Auto Match",
+		"file" : "automatch",
+		"extension" : "ipf",
+		"fileVersion" : "v1.0.1",
+		"releaseTag" : "automatch",
+		"unicode" : "⛄",
+		"description" : "Chat shortcuts for auto match content. Type '/automatch' or '/am' to see command list",
+		"tags" : [
+			"automatch",
+			"CM",
+			"Singularity",
+			"Raid"
+		]
 	}
 ]
