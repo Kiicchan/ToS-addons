@@ -1,6 +1,6 @@
 local addonName = "PARTYDUEL"
 local author = "Kiicchan"
-local version = "2.0.1"
+local version = "2.0.2"
 
 _G["ADDONS"] = _G["ADDONS"] or {}
 _G["ADDONS"][author] = _G["ADDONS"][author] or {}
@@ -79,7 +79,7 @@ function PARTYDUEL_ACCEPTDUEL_CMD(command)
 end
 
 function PARTYDUEL_HELP()
-    CHAT_SYSTEM("Help: {nl}'/partyduel PlayerName' to invite the player and his party members to a duel{nl} '/guildduel GuildName' to invite all guild members to a duel {nl} '/acceptduel yes/no/ask' to config auto-accept duel option");
+    CHAT_SYSTEM("Help: {nl}'/partyduel PlayerName' to invite this player to a duel{nl} '/guildduel GuildName' to invite all guild members to a duel {nl} '/acceptduel yes/no/ask' to config auto-accept duel option");
     CHAT_SYSTEM("'/pkstart' to start PK mode");
     CHAT_SYSTEM("'/pkend' to end PK mode");
 end
@@ -109,7 +109,7 @@ function PARTYDUEL_GUILD_FIND(targetGuild)
 	for i = 1, cnt do			
 		local ObHandle = GetHandle(list[i]);
         local stat = info.GetStat(ObHandle);
-        if stat ~= nil and info.IsPC(ObHandle) == 1 and info.IsNegativeRelation(ObHandle) == 0 and stat.HP > 300 then				
+        if stat ~= nil and info.IsPC(ObHandle) == 1 and info.IsNegativeRelation(ObHandle) == 0 and stat.HP/stat.maxHP > 0.3 then				
             local charFrame = ui.GetFrame("charbaseinfo1_"..ObHandle);
             if charFrame ~= nil then
                 local guildText = charFrame:GetChild("guildName");
@@ -145,47 +145,48 @@ function PARTYDUEL_PARTY_CMD(command)
     
     local targetHandle = targetActor:GetHandleVal()    
     if targetHandle ~= session.GetMyHandle() then
-        CHAT_SYSTEM("Inviting "..targetPlayer.." and party to a duel");
+        CHAT_SYSTEM("Inviting "..targetPlayer.." to a duel");
+        REQUEST_FIGHT(targetHandle);
     else
         CHAT_SYSTEM("You can't duel yourself");
         return;
     end
 
-    local targetFrame = ui.GetFrame("charbaseinfo1_"..targetHandle)
-    if targetFrame ~= nil then
-        local targetText = targetFrame:GetChild("partyName");
-        local targetParty = targetText:GetTextByKey("partyName");
-        targetParty = targetParty:gsub("{(.-)}", "");
+    -- local targetFrame = ui.GetFrame("charbaseinfo1_"..targetHandle)
+    -- if targetFrame ~= nil then
+    --     local targetText = targetFrame:GetChild("partyName");
+    --     local targetParty = targetText:GetTextByKey("partyName");
+    --     targetParty = targetParty:gsub("{(.-)}", "");
 
-        if targetParty == "None" then
-            REQUEST_FIGHT(targetHandle);
-            CHAT_SYSTEM("This Player has no party");
-            return;
-        end
-        PARTYDUEL_STOP_TIMER();
-        PARTYDUEL_PARTY_FIND(targetParty);
-        PARTYDUEL_CREATE_TIMER();
-    end
+    --     if targetParty == "None" then
+    --         REQUEST_FIGHT(targetHandle);
+    --         CHAT_SYSTEM("This Player has no party");
+    --         return;
+    --     end
+    --     PARTYDUEL_STOP_TIMER();
+    --     PARTYDUEL_PARTY_FIND(targetParty);
+    --     PARTYDUEL_CREATE_TIMER();
+    -- end
 end
 
-function PARTYDUEL_PARTY_FIND(targetParty)
-    local list, cnt = SelectObject(GetMyPCObject(), 10000, "ALL");        
-    for i = 1, cnt do			
-        local ObHandle = GetHandle(list[i]);
-        local stat = info.GetStat(ObHandle);
-        if stat ~= nil and info.IsPC(ObHandle) == 1 and info.IsNegativeRelation(ObHandle) == 0 and stat.HP > 300 then				
-            local charFrame = ui.GetFrame("charbaseinfo1_"..ObHandle);
-            if charFrame ~= nil then
-                local partyText = charFrame:GetChild("partyName");
-                local partyName = partyText:GetTextByKey("partyName");
-                partyName = partyName:gsub("{(.-)}", "");
-                if partyName == targetParty then
-                    table.insert(g.playerList, ObHandle);
-                end
-            end
-        end
-    end
-end
+-- function PARTYDUEL_PARTY_FIND(targetParty)
+--     local list, cnt = SelectObject(GetMyPCObject(), 10000, "ALL");        
+--     for i = 1, cnt do			
+--         local ObHandle = GetHandle(list[i]);
+--         local stat = info.GetStat(ObHandle);
+--         if stat ~= nil and info.IsPC(ObHandle) == 1 and info.IsNegativeRelation(ObHandle) == 0 and stat.HP/stat.maxHP > 0.3 then				
+--             local charFrame = ui.GetFrame("charbaseinfo1_"..ObHandle);
+--             if charFrame ~= nil then
+--                 local partyText = charFrame:GetChild("partyName");
+--                 local partyName = partyText:GetTextByKey("partyName");
+--                 partyName = partyName:gsub("{(.-)}", "");
+--                 if partyName == targetParty then
+--                     table.insert(g.playerList, ObHandle);
+--                 end
+--             end
+--         end
+--     end
+-- end
 
 function PARTYDUEL_PK_START()
     if world.IsPVPMap() == true then
@@ -214,7 +215,7 @@ function PARTYDUEL_PK_FIND()
     for i = 1, cnt do			
         local ObHandle = GetHandle(list[i]);
         local stat = info.GetStat(ObHandle);
-        if stat ~= nil and info.IsPC(ObHandle) == 1 and ObHandle ~= session.GetMyHandle() and info.IsNegativeRelation(ObHandle) == 0 and stat.HP > 300 then
+        if stat ~= nil and info.IsPC(ObHandle) == 1 and ObHandle ~= session.GetMyHandle() and info.IsNegativeRelation(ObHandle) == 0 and stat.HP/stat.maxHP > 0.3 then
             local PCfamily = info.GetFamilyName(ObHandle);
             local IsParty = session.party.GetPartyMemberInfoByName(PARTY_NORMAL, PCfamily) ~= nil;				
             local pctitleFrame = ui.GetFrame(ObHandle.."_pctitle");
@@ -257,14 +258,14 @@ end
 
 function PARTYDUEL_REQUEST()
     local mystat = info.GetStat(session.GetMyHandle());
-    if mystat == nil or mystat.HP < 300 then
+    if mystat == nil or mystat.HP/mystat.maxHP < 0.3 then
         return;
     end
 
     local playerHandle = table.remove(g.playerList);
     if playerHandle ~= nil then
         local stat = info.GetStat(playerHandle);
-        if stat ~= nil and info.IsPC(playerHandle) == 1 and stat.HP > 300 then
+        if stat ~= nil and info.IsPC(playerHandle) == 1 and stat.HP/stat.maxHP > 0.3 then
             local playerName = info.GetFamilyName(playerHandle);
             CHAT_SYSTEM("Inviting "..playerName);
             REQUEST_FIGHT(playerHandle);
