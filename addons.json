@@ -70,7 +70,7 @@
     "name": "SP Savior",
     "file": "spsavior",
     "extension": "ipf",
-    "fileVersion": "v1.0.1",
+    "fileVersion": "v1.0.0",
     "releaseTag": "spsavior",
     "unicode": "⛄",
     "description": "Remove buffs that consume SP per second when a threshold is reached.",

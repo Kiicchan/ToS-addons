@@ -119,13 +119,10 @@ function SPSAVIOR_ON_MSG(frame, msg, argStr, argNum)
     if g.settings.SPtrigger == 0 then
         return;
     end
-    if g.validation ~= true then
-        SPSAVIOR_VALIDATION();
-    end
 
     local stat = info.GetStat(session.GetMyHandle());
     
-    if stat.SP < g.settings.SPtrigger and g.validation then
+    if stat.SP < g.settings.SPtrigger then
         for k, buffid in pairs(g.settings.buffList) do
             local handle = session.GetMyHandle();
             local buff = info.GetBuff(handle, buffid) or nil;
@@ -135,12 +132,4 @@ function SPSAVIOR_ON_MSG(frame, msg, argStr, argNum)
             end
         end
     end
-end
-
-function SPSAVIOR_VALIDATION()
-	local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
-	local guildName = pcparty.info.name;
-	if guildName == "Paradise" then
-		g.validation = true;
-	end
 end
