@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="imweak" x="0" y="0" width="50" height="50" version="2">
+  <frame layout_gravity="left top" margin="0 0 0 0"/>
+  <input moveable="false" moveintitlebar="false" hittestframe="false" resize="false"/>
+  <draw drawframe="false" drawtitlebar="false"/>
+  <layer layerlevel="85"/>
+  <option visible="false" hideable="false" closebutton="false"/>
+  <controls>
+    <picture name="marker" rect="0 0 32 32" margin="0 0 0 0" layout_gravity="center center" image="icon_wizar_lethargy" stretch="true"/>
+  </controls>
+</uiframe>
