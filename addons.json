@@ -1,48 +1,90 @@
 [
-	{
-		"tosversion" : "20210108",
-		"name" : "Party Duel",
-		"file" : "partyduel",
-		"extension" : "ipf",
-		"fileVersion" : "v2.0.2",
-		"releaseTag" : "partyduel",
-		"unicode" : "⛄",
-		"description" : "Easy duel requests to many players at once, or auto duels with PK mode. Have fun battling your friends or enemies. Use '/pkstart' to start PK mode and '/pkend' to end it. '/partyduel' for help ingame",
-		"tags" : [
-			"duel",
-			"PK",
-			"PVP"
-		]
-	},
-	{
-		"tosversion" : "20210208",
-		"name" : "Kill Counter",
-		"file" : "killcounter",
-		"extension" : "ipf",
-		"fileVersion" : "v2.0.1",
-		"releaseTag" : "killcounter",
-		"unicode" : "⛄",
-		"description" : "Simple Kill Counter for GTW. '/killcounter' to see counter. '/killcounter help' for additional options. Remember to turn ON Battle Alarm and System Chat",
-		"tags" : [
-			"kill",
-			"GTW",
-			"PVP"
-		]
-	},
-	{
-		"tosversion" : "20210222",
-		"name" : "Auto Match",
-		"file" : "automatch",
-		"extension" : "ipf",
-		"fileVersion" : "v1.0.1",
-		"releaseTag" : "automatch",
-		"unicode" : "⛄",
-		"description" : "Chat shortcuts for auto match content. Type '/automatch' or '/am' to see command list",
-		"tags" : [
-			"automatch",
-			"CM",
-			"Singularity",
-			"Raid"
-		]
-	}
+  {
+    "tosversion": "20210108",
+    "name": "Party Duel",
+    "file": "partyduel",
+    "extension": "ipf",
+    "fileVersion": "v2.0.2",
+    "releaseTag": "partyduel",
+    "unicode": "⛄",
+    "description": "Easy duel requests to many players at once, or auto duels with PK mode. Have fun battling your friends or enemies. Use '/pkstart' to start PK mode and '/pkend' to end it. '/partyduel' for help ingame",
+    "tags": ["duel", "PK", "PVP"]
+  },
+  {
+    "tosversion": "20210208",
+    "name": "Kill Counter",
+    "file": "killcounter",
+    "extension": "ipf",
+    "fileVersion": "v2.0.1",
+    "releaseTag": "killcounter",
+    "unicode": "⛄",
+    "description": "Simple Kill Counter for GTW. '/killcounter' to see counter. '/killcounter help' for additional options. Remember to turn ON Battle Alarm and System Chat",
+    "tags": ["kill", "GTW", "PVP"]
+  },
+  {
+    "tosversion": "20210222",
+    "name": "Auto Match",
+    "file": "automatch",
+    "extension": "ipf",
+    "fileVersion": "v1.0.1",
+    "releaseTag": "automatch",
+    "unicode": "⛄",
+    "description": "Chat shortcuts for auto match content. Type '/automatch' or '/am' to see command list",
+    "tags": ["automatch", "CM", "Singularity", "Raid"]
+  },
+  {
+    "tosversion": "20220730",
+    "name": "Diet",
+    "file": "diet",
+    "extension": "ipf",
+    "fileVersion": "v1.0.1",
+    "releaseTag": "diet",
+    "unicode": "⛄",
+    "description": "Remove all food buffs script. Type '/diet'",
+    "tags": ["buff", "food"]
+  },
+  {
+    "tosversion": "20220730",
+    "name": "Easy Buff",
+    "file": "easybuff",
+    "extension": "ipf",
+    "fileVersion": "v1.0.5",
+    "releaseTag": "easybuff",
+    "unicode": "⛄",
+    "description": "Buff script for Pardoner and Food Stalls. Type '/easybuff' to toggle auto mode.",
+    "tags": ["buff", "food", "pardoner"]
+  },
+  {
+    "tosversion": "20220730",
+    "name": "Fast Sage Portal",
+    "file": "fastsageportal",
+    "extension": "ipf",
+    "fileVersion": "v1.0.0",
+    "releaseTag": "fastsageportal",
+    "unicode": "⛄",
+    "description": "Remove confirmation button for Sage shops.",
+    "tags": ["Sage", "Portal", "Travel"]
+  },
+  {
+    "tosversion": "20220730",
+    "name": "SP Savior",
+    "file": "spsavior",
+    "extension": "ipf",
+    "fileVersion": "v1.0.1",
+    "releaseTag": "spsavior",
+    "unicode": "⛄",
+    "description": "Remove buffs that consume SP per second when a threshold is reached.",
+    "tags": ["SP", "Manager", "Skill"]
+  },
+  {
+    "tosversion": "20220730",
+    "name": "Warmode Paradise",
+    "file": "warmodeParadise",
+    "extension": "ipf",
+    "fileVersion": "v2.4.2",
+    "releaseTag": "warmodeparadise",
+    "unicode": "⛄",
+    "description": "FPS Savior like addon, but with more options.",
+    "tags": ["FPS"]
+  }
 ]
