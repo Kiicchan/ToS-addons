@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="mostwanted" x="0" y="0" width="50" height="50" version="2">
+  <frame layout_gravity="left top" margin="0 0 0 0"/>
+  <input moveable="false" moveintitlebar="false" hittestframe="false" resize="false"/>
+  <draw drawframe="false" drawtitlebar="false"/>
+  <layer layerlevel="80"/>
+  <option visible="false" hideable="false" closebutton="false"/>
+  <controls>
+    <picture name="marker" rect="0 0 50 50" margin="0 0 0 0" layout_gravity="center center" image="test_pvp_alram_icon" stretch="true"/>
+  </controls>
+</uiframe>
