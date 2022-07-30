@@ -1,4 +1,5 @@
 # Auto Match
+-- Due to many changes in raid/dungeons by IMC, this addon don't work as before.
 Chat shortcuts to automatch content. Type '/automatch' or '/am' ingame for help.
 
 '/am cm1' - CM Area 1
